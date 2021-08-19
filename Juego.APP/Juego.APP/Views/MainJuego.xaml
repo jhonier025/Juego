@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Juego.APP.Views.MainJuego"
+             xmlns:viewModel="clr-namespace:Juego.APP.ViewModels">
+
+    <ContentPage.BindingContext>
+        <viewModel:MainViewModel/>
+    </ContentPage.BindingContext>
+    
+    <ScrollView>
+        <StackLayout Padding="20" VerticalOptions="Center" HorizontalOptions="Center">
+
+
+            <Frame BackgroundColor="Red" CornerRadius="14"
+               Padding="24">
+                <Label Text="Apuestas" TextColor="Black" FontSize="20" HorizontalTextAlignment="Center" />
+            </Frame>
+            
+        <Button 
+        Text="Recarga"
+        x:Name="Recargar"
+        BackgroundColor="Red"
+        TextColor="Black"
+        FontAttributes="Bold"
+        CornerRadius="15"
+        Command="{Binding RecargaCommand}"/>
+
+            <Label Text="INGRESA TUS CRÉDITOS" HorizontalTextAlignment="Center" />
+            <Entry Placeholder="999.999.999" HorizontalTextAlignment="Center" 
+           
+         Text="{Binding Creditos}"/>
+
+
+          <Label Text="ESCOGE 3 NÚMEROS DE 1 CIFRA" HorizontalTextAlignment="Center" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Entry Grid.Column="0" Placeholder="2" HorizontalTextAlignment="Center" />
+                <Entry Text="{Binding Numero1}"/>
+                <Entry Grid.Column="1" Placeholder="5" HorizontalTextAlignment="Center" />
+                <Entry Text="{Binding Numero2}"/>
+                <Entry Grid.Column="2" Placeholder="6" HorizontalTextAlignment="Center" />
+                <Entry  Text="{Binding Numero3}"/>             
+                
+                                  
+                                  
+            
+        </Grid>
+
+            <Button CornerRadius="14" Text="Jugar" BackgroundColor="red" TextColor="Black" 
+
+            Command="{Binding JugarCommand}"/>
+
+            <Label Text="Resultados" FontSize="20" HorizontalTextAlignment="Center" />
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                    <ColumnDefinition Width="2*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Label BackgroundColor="Red" HeightRequest="50" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="_" TextColor="Black" FontSize="20" />
+                <Label BackgroundColor="Red" HeightRequest="50" Grid.Column="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="_" TextColor="Black" FontSize="20" />
+                <Label BackgroundColor="Red" HeightRequest="50" Grid.Column="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Text="_" TextColor="Black" FontSize="20" />
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
